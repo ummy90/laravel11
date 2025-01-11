@@ -4,34 +4,18 @@
 
 @foreach ($posts as $post)
 <article class="py-8 max-w-screen-md border-b border-gray-300">
-    <a href="/posts{{ $post['id'] }}" class="hover:underline">
+    <a href="/posts/{{ $post['slug'] }}" class="hover:underline">
        
     <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900">{{ $post ['title'] }}</h2>
     </a>
     <div class="text-gray-500 text-base">
-        <a href="#">{{ $post ['author'] }}</a> | 26 Desember 2024 
+        <a href="#">{{ $post ['author'] }}</a> | {{ $post -> created_at -> format('d F, Y') }}
     </div>
     <p class="my-4 font-light align-justify">{{ $post ['body'] }}</p>
-        <a href="/posts{{ $post['id'] }}" class="font-medium text-blue-500 hover:underline">Read More &raquo;</a>
+        <a href="/posts/{{ $post['slug'] }}" class="font-medium text-blue-500 hover:underline">Read More &raquo;</a>
 </article>
+
+
+
 @endforeach
-
-<article class="py-8 max-w-screen-md border-b border-gray-300">
-    <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900">{{ $post ['title'] }}</h2>
-    <div class="text-gray-500 text-base">
-        <a href="#">{{ $post ['author'] }}</a> | 27 Desember 2024 
-    </div>
-    <p class="my-4 font-light">{{ $post ['body'] }}</p>
-        <a href="/posts{{ $post['id'] }}" class="font-medium text-blue-500 hover:underline">Read More &raquo;</a>
-</article>
-
-<article class="py-8 max-w-screen-md border-b border-gray-300">
-    <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900">{{ $post ['title'] }}</h2>
-    <div class="text-gray-500 text-base">
-        <a href="#">{{ $post ['author'] }}</a> | 28 Desember 2024 
-    </div>
-    <p class="my-4 font-light">{{ $post ['body'] }}</p>
-        <a href="/posts/{{ $post['id'] }}" class="font-medium text-blue-500 hover:underline">Read More &raquo;</a>
-</article>
-
 </x-layout>
